@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>FlapMore — Arcade</title>
+<title>FlapMore — Arcade (Updated)</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,11 +11,18 @@
     <header class="topbar">
       <div class="brand">FlapMore — Arcade</div>
       <div class="controls">
+        <select id="difficulty" class="btn" title="Difficulty">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="levelEditorBtn" class="btn">Level Editor</button>
         <button id="muteBtn" class="btn">🔊</button>
         <button id="skinBtn" class="btn">Skin</button>
         <button id="leaderBtn" class="btn">Leaderboard</button>
       </div>
     </header>
+
     <main class="card">
       <div class="hud-top">
         <div class="score-area"><span id="score">0</span></div>
@@ -29,6 +36,7 @@
         <div class="tips">Space / Click to flap • P to pause • S to change skin</div>
       </div>
     </main>
+
     <section id="leaderboard" class="modal hidden">
       <div class="modal-card">
         <h3>Leaderboard (Local)</h3>
@@ -39,8 +47,32 @@
         </div>
       </div>
     </section>
+
+    <section id="levelEditor" class="modal hidden">
+      <div class="modal-card">
+        <h3>Level Editor</h3>
+        <p>Place a sequence of pipes (distance in px between pipes, gap size in px). Saved locally.</p>
+        <div style="max-height:220px;overflow:auto;margin-top:6px;">
+          <table id="levelTable" style="width:100%;color:#fff;font-size:13px">
+            <thead><tr><th>#</th><th>Distance</th><th>Gap</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+          <input id="addDistance" type="number" placeholder="distance(px)" style="flex:1;padding:6px;border-radius:6px"/>
+          <input id="addGap" type="number" placeholder="gap(px)" style="width:100px;padding:6px;border-radius:6px"/>
+          <button id="addPipeBtn" class="btn">Add</button>
+        </div>
+        <div class="modal-actions" style="margin-top:10px">
+          <button id="saveLevel" class="btn">Save</button>
+          <button id="closeLevel" class="btn">Close</button>
+        </div>
+      </div>
+    </section>
+
     <footer class="foot">Arcade mode • Day/Night cycle • Power-ups • Smooth animations</footer>
   </div>
+
 <script src="game.js"></script>
 </body>
 </html>
