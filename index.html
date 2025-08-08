@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FlapMore — Arcade</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">FlapMore — Arcade</div>
+      <div class="controls">
+        <button id="muteBtn" class="btn">🔊</button>
+        <button id="skinBtn" class="btn">Skin</button>
+        <button id="leaderBtn" class="btn">Leaderboard</button>
+      </div>
+    </header>
+    <main class="card">
+      <div class="hud-top">
+        <div class="score-area"><span id="score">0</span></div>
+        <div class="high-area">High: <span id="high">0</span></div>
+        <div class="level-area">Lv: <span id="level">1</span></div>
+      </div>
+      <canvas id="game" width="800" height="520"></canvas>
+      <div class="hud-bottom">
+        <button id="startBtn" class="btn big">Start</button>
+        <button id="restartBtn" class="btn big">Restart</button>
+        <div class="tips">Space / Click to flap • P to pause • S to change skin</div>
+      </div>
+    </main>
+    <section id="leaderboard" class="modal hidden">
+      <div class="modal-card">
+        <h3>Leaderboard (Local)</h3>
+        <ol id="leaderList"></ol>
+        <div class="modal-actions">
+          <button id="clearScores" class="btn">Clear</button>
+          <button id="closeLeader" class="btn">Close</button>
+        </div>
+      </div>
+    </section>
+    <footer class="foot">Arcade mode • Day/Night cycle • Power-ups • Smooth animations</footer>
+  </div>
+<script src="game.js"></script>
+</body>
+</html>
